@@ -5,28 +5,32 @@ import shutil
 from extensions import Extensions
 
 
-def organize_files(sourceDir):
+def organize_files(folders):
 
     userHomeDir = str(Path.home())
-    targetDir = os.path.join(userHomeDir, sourceDir)
 
-    for key, data in Extensions.items():
+    for folder in folders:
 
-        for file in os.listdir(targetDir):
-            file_extension = os.path.splitext(file)[1]
-            file_extension = file_extension[1:].lower()
+        targetDir = os.path.join(userHomeDir, folder)
 
-            path_to_file = os.path.join(targetDir, file)
-            destination_dir = os.path.join(targetDir, key)
-            destination_path = os.path.join(destination_dir, file)
+        for key, data in Extensions.items():
 
-            if file_extension in data:
+            for file in os.listdir(targetDir):
+                file_extension = os.path.splitext(file)[1]
+                file_extension = file_extension[1:].lower()
 
-                if not os.path.exists(destination_dir):
-                    os.makedirs(destination_dir)
+                path_to_file = os.path.join(targetDir, file)
+                destination_dir = os.path.join(targetDir, key)
+                destination_path = os.path.join(destination_dir, file)
 
-                shutil.move(path_to_file, destination_path)
-    print('Files organized succesfully!')    
+                if file_extension in data:
+
+                    if not os.path.exists(destination_dir):
+                        os.makedirs(destination_dir)
+                
+                    shutil.move(path_to_file, destination_path)
+
+        print(f'Files organized succesfully in: {folder}')    
 
 
             

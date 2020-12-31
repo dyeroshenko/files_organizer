@@ -1,5 +1,6 @@
 Extensions = {
-
+#Add any missing extensions here - be carefull with key-value, script will generate a respective folder based on it's name
+ 
  'Images': ['png', 'jpg', 'jpeg', 'gif', 'tiff', 'bmp', 'gifv', 'heic'],
  'Videos': ['mp4', 'mov', 'avi', 'mkv'],
  'Reports': ['xls', 'xlsx', 'ods', 'ots', 'csv'],

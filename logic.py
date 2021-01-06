@@ -3,6 +3,7 @@ from pathlib import Path
 import shutil
 
 from extensions import Extensions
+from log import add_to_log
 
 
 def organize_files(folders):
@@ -30,7 +31,8 @@ def organize_files(folders):
                 
                     shutil.move(path_to_file, destination_path)
 
-        print(f'Files organized succesfully in: {folder}')    
+        print(f'Files organized succesfully in: {folder}')
+    add_to_log()    
 
 
             
